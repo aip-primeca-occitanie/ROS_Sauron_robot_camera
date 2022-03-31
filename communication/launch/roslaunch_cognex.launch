@@ -1,0 +1,3 @@
+<launch>
+  <node name="ihm_cognex" pkg="communication" type="ihm_cognex.py" output="screen"/>
+</launch>

@@ -1,0 +1,21 @@
+<launch>
+    <arg name="sim" default="false" />
+    <arg name="speed_percentage" default="5" />
+    <arg name="robot_ip" default="192.168.0.113" />
+    <arg name="controller" default="yrc1000" />
+
+    <group if="$(arg sim)">
+        <include file="$(find motoman_hc10_moveit_config)/launch/moveit_planning_execution_box.launch" />
+    </group>
+    <group unless="$(arg sim)">
+        <include file="$(find motoman_hc10_moveit_config)/launch/moveit_planning_execution_box.launch" >
+            <arg name="sim" value="$(arg sim)" />
+            <arg name="robot_ip" value="$(arg robot_ip)"/>
+            <arg name="controller" value="$(arg controller)"/>
+        </include>
+    </group>
+
+    <include file="$(find rosbridge_server)/launch/rosbridge_websocket.launch"/>
+
+    <node name="move_robot_server" pkg="motoman_hc10_moveit_config" type="move_robot_server_demo_release4.py" args="$(arg speed_percentage)" output="screen"/>
+</launch>

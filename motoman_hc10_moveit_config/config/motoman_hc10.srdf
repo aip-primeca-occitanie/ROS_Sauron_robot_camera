@@ -1,0 +1,179 @@
+<?xml version="1.0" ?>
+<!--This does not replace URDF, and is not an extension of URDF.
+    This is a format for representing semantic information about the robot structure.
+    A URDF file must exist for this robot as well, where the joints and the links that are referenced are defined
+-->
+<robot name="motoman_hc10">
+    <!--GROUPS: Representation of a set of joints and links. This can be useful for specifying DOF to plan for, defining arms, end effectors, etc-->
+    <!--LINKS: When a link is specified, the parent joint of that link (if it exists) is automatically included-->
+    <!--JOINTS: When a joint is specified, the child link of that joint (which will always exist) is automatically included-->
+    <!--CHAINS: When a chain is specified, all the links along the chain (including endpoints) are included in the group. Additionally, all the joints that are parents to included links are also included. This means that joints along the chain and the parent joint of the base link are included in the group-->
+    <!--SUBGROUPS: Groups can also be formed by referencing to already defined group names-->
+    <group name="manipulator">
+        <chain base_link="base_link" tip_link="tool0" />
+    </group>
+    <!--GROUP STATES: Purpose: Define a named state for a particular group, in terms of joint values. This is useful to define states like 'folded arms'-->
+    <group_state name="home" group="manipulator">
+        <joint name="joint_1_s" value="0" />
+        <joint name="joint_2_l" value="0" />
+        <joint name="joint_3_u" value="0" />
+        <joint name="joint_4_r" value="0" />
+        <joint name="joint_5_b" value="0" />
+        <joint name="joint_6_t" value="0" />
+    </group_state>
+    <group_state name="localisation_1" group="manipulator">
+        <joint name="joint_1_s" value="0.24757201969623566" />
+        <joint name="joint_2_l" value="0.5612969398498535" />
+        <joint name="joint_3_u" value="3.1347618103027344" />
+        <joint name="joint_4_r" value="0.0012180637568235397" />
+        <joint name="joint_5_b" value="-2.572270393371582" />
+        <joint name="joint_6_t" value="-0.24600575864315033" />
+    </group_state>
+    <group_state name="localisation_2" group="manipulator">
+        <joint name="joint_1_s" value="0.2705768942832947" />
+        <joint name="joint_2_l" value="0.24665731191635132" />
+        <joint name="joint_3_u" value="2.552399158477783" />
+        <joint name="joint_4_r" value="0.00028026243671774864" />
+        <joint name="joint_5_b" value="-2.3062474727630615" />
+        <joint name="joint_6_t" value="-0.2520960867404938" />
+    </group_state>
+    <group_state name="localisation_3" group="manipulator">
+        <joint name="joint_1_s" value="0.20353540778160095" />
+        <joint name="joint_2_l" value="0.5559916496276855" />
+        <joint name="joint_3_u" value="3.1221368312835693" />
+        <joint name="joint_4_r" value="0.0004203936841804534" />
+        <joint name="joint_5_b" value="-2.5666327476501465" />
+        <joint name="joint_6_t" value="1.3952542543411255" />
+    </group_state>
+    <group_state name="localisation_4" group="manipulator">
+        <joint name="joint_1_s" value="0.024488016963005066" />
+        <joint name="joint_2_l" value="0.3810539245605469" />
+        <joint name="joint_3_u" value="2.7680842876434326" />
+        <joint name="joint_4_r" value="0.0004527316486928612" />
+        <joint name="joint_5_b" value="-2.387491226196289" />
+        <joint name="joint_6_t" value="1.5742988586425781" />
+    </group_state>
+    <!--POSITIONS CALIBRATIONS A DEFINIR#################################################################""-->
+    <group_state name="calibration_1" group="manipulator">
+        <joint name="joint_1_s" value="0.30617207288742065" />
+        <joint name="joint_2_l" value="0.124269500374794" />
+        <joint name="joint_3_u" value="2.253232717514038" />
+        <joint name="joint_4_r" value="0.03095822222530842" />
+        <joint name="joint_5_b" value="-2.133713483810425" />
+        <joint name="joint_6_t" value="-0.21363544464111328" />
+    </group_state>
+    <group_state name="calibration_2" group="manipulator">
+        <joint name="joint_1_s" value="-0.04803519323468208" />
+        <joint name="joint_2_l" value="0.005364104174077511" />
+        <joint name="joint_3_u" value="2.1216981410980225" />
+        <joint name="joint_4_r" value="0.030774973332881927" />
+        <joint name="joint_5_b" value="-2.112262725830078" />
+        <joint name="joint_6_t" value="0.1192193329334259" />
+    </group_state>
+    <group_state name="calibration_3" group="manipulator">
+        <joint name="joint_1_s" value="-0.08766814321279526" />
+        <joint name="joint_2_l" value="-0.193930983543396" />
+        <joint name="joint_3_u" value="1.9583710432052612" />
+        <joint name="joint_4_r" value="0.029664702713489532" />
+        <joint name="joint_5_b" value="-2.14144229888916" />
+        <joint name="joint_6_t" value="0.13640157878398895" />
+    </group_state>
+    <group_state name="calibration_4" group="manipulator">
+        <joint name="joint_1_s" value="0.4426790475845337" />
+        <joint name="joint_2_l" value="-0.03407937288284302" />
+        <joint name="joint_3_u" value="2.0856823921203613" />
+        <joint name="joint_4_r" value="0.031648099422454834" />
+        <joint name="joint_5_b" value="-2.1229772567749023" />
+        <joint name="joint_6_t" value="-0.3935423791408539" />
+    </group_state>
+    <group_state name="calibration_5" group="manipulator">
+        <joint name="joint_1_s" value="0.18407174944877625" />
+        <joint name="joint_2_l" value="-0.04535640776157379" />
+        <joint name="joint_3_u" value="2.072009325027466" />
+        <joint name="joint_4_r" value="0.028964046388864517" />
+        <joint name="joint_5_b" value="-2.107649087905884" />
+        <joint name="joint_6_t" value="0.33999067544937134" />
+    </group_state>
+    <group_state name="calibration_6" group="manipulator">
+        <joint name="joint_1_s" value="0.019921014085412025" />
+        <joint name="joint_2_l" value="0.3738669455051422" />
+        <joint name="joint_3_u" value="2.022313117980957" />
+        <joint name="joint_4_r" value="-0.04159741476178169" />
+        <joint name="joint_5_b" value="-2.04059100151062" />
+        <joint name="joint_6_t" value="-0.6924530863761902" />
+    </group_state>
+    <group_state name="calibration_7" group="manipulator">
+        <joint name="joint_1_s" value="0.6772230267524719" />
+        <joint name="joint_2_l" value="0.7082316279411316" />
+        <joint name="joint_3_u" value="2.627114772796631" />
+        <joint name="joint_4_r" value="0.37595051527023315" />
+        <joint name="joint_5_b" value="-2.424776792526245" />
+        <joint name="joint_6_t" value="-0.6924530863761902" />
+    </group_state>
+    <group_state name="calibration_8" group="manipulator">
+        <joint name="joint_1_s" value="1.1247239112854004" />
+        <joint name="joint_2_l" value="0.11199935525655746" />
+        <joint name="joint_3_u" value="1.7007668018341064" />
+        <joint name="joint_4_r" value="0.4532274901866913" />
+        <joint name="joint_5_b" value="-1.8392654657363892" />
+        <joint name="joint_6_t" value="-1.1659780740737915" />
+    </group_state>
+    <group_state name="calibration_9" group="manipulator">
+        <joint name="joint_1_s" value="1.414614200592041" />
+        <joint name="joint_2_l" value="-0.2846764624118805" />
+        <joint name="joint_3_u" value="1.5197961330413818" />
+        <joint name="joint_4_r" value="0.5082235932350159" />
+        <joint name="joint_5_b" value="-1.8868777751922607" />
+        <joint name="joint_6_t" value="-0.6030493378639221" />
+    </group_state>
+    <group_state name="calibration_10" group="manipulator">
+        <joint name="joint_1_s" value="0.7122563123703003" />
+        <joint name="joint_2_l" value="0.24887874722480774" />
+        <joint name="joint_3_u" value="2.128077507019043" />
+        <joint name="joint_4_r" value="0.18595413863658905" />
+        <joint name="joint_5_b" value="-2.0615782737731934" />
+        <joint name="joint_6_t" value="-0.793272078037262" />
+    </group_state>
+    <group_state name="parking" group="manipulator">
+        <joint name="joint_1_s" value="0.18" />
+        <joint name="joint_2_l" value="0.0886" />
+        <joint name="joint_3_u" value="1.2445" />
+        <joint name="joint_4_r" value="0" />
+        <joint name="joint_5_b" value="-1.1556" />
+        <joint name="joint_6_t" value="-0.1797" />
+    </group_state>
+    <group_state name="picture" group="manipulator">
+        <joint name="joint_1_s" value="0.13" />
+        <joint name="joint_2_l" value="0.35" />
+        <joint name="joint_3_u" value="3.02" />
+        <joint name="joint_4_r" value="0" />
+        <joint name="joint_5_b" value="-2.67" />
+        <joint name="joint_6_t" value="0.13" />
+    </group_state>
+    <group_state name="camera" group="manipulator">
+        <joint name="joint_1_s" value="2.2" />
+        <joint name="joint_2_l" value="-0.44" />
+        <joint name="joint_3_u" value="5.49" />
+        <joint name="joint_4_r" value="-3.12" />
+        <joint name="joint_5_b" value="2.7" />
+        <joint name="joint_6_t" value="-1.42" />
+    </group_state>
+    
+
+    
+    <!--VIRTUAL JOINT: Purpose: this element defines a virtual joint between a robot link and an external frame of reference (considered fixed with respect to the robot)-->
+    <virtual_joint name="FixedBase" type="fixed" parent_frame="world" child_link="base_link" />
+    <!--DISABLE COLLISIONS: By default it is assumed that any link of the robot could potentially come into collision with any other link in the robot. This tag disables collision checking between a specified pair of links. -->
+    <disable_collisions link1="base_link" link2="link_1_s" reason="Adjacent" />
+    <disable_collisions link1="base_link" link2="link_3_u" reason="Never" />
+    <disable_collisions link1="link_1_s" link2="link_2_l" reason="Adjacent" />
+    <disable_collisions link1="link_1_s" link2="link_3_u" reason="Never" />
+    <disable_collisions link1="link_2_l" link2="link_3_u" reason="Adjacent" />
+    <disable_collisions link1="link_2_l" link2="link_4_r" reason="Never" />
+    <disable_collisions link1="link_3_u" link2="link_4_r" reason="Adjacent" />
+    <disable_collisions link1="link_3_u" link2="link_5_b" reason="Never" />
+    <disable_collisions link1="link_3_u" link2="link_6_t" reason="Never" />
+    <disable_collisions link1="link_4_r" link2="link_5_b" reason="Adjacent" />
+    <disable_collisions link1="link_4_r" link2="link_6_t" reason="Never" />
+    <disable_collisions link1="link_5_b" link2="link_6_t" reason="Adjacent" />
+</robot>
